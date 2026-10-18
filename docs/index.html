@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClipBar — Universal Clipboard for macOS</title>
+  <meta name="description" content="ClipBar is a blazing-fast, open-source clipboard manager for macOS. Summon a Spotlight-style bar with ⌘⇧V, keep 500 items of text, code, colors and images — under 30 MB of RAM, zero permissions, no telemetry.">
+  <meta name="theme-color" content="#0b0b10">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ClipBar — Universal Clipboard for macOS">
+  <meta property="og:description" content="The clipboard manager your Mac deserves. 100% native Swift, under 30 MB of RAM, 500-item history, color swatches, code detection, zero permissions. Free and open source.">
+  <meta property="og:url" content="https://turhe123.github.io/clipbar/">
+  <meta property="og:site_name" content="ClipBar">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ClipBar — Universal Clipboard for macOS">
+  <meta name="twitter:description" content="The clipboard manager your Mac deserves. Native Swift, under 30 MB RAM, zero permissions, open source.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c3aed'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Crect x='18' y='16' width='28' height='36' rx='6' fill='none' stroke='white' stroke-width='4'/%3E%3Crect x='25' y='11' width='14' height='10' rx='3' fill='white'/%3E%3Cpath d='M25 33h14M25 41h9' stroke='white' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow--violet"></div>
+    <div class="bg-glow bg-glow--cyan"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <header class="nav-wrap">
+    <nav class="nav container" aria-label="Primary">
+      <a class="logo" href="#top" aria-label="ClipBar home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="26" height="26"><rect x="18" y="16" width="28" height="36" rx="6" fill="none" stroke="currentColor" stroke-width="4"/><rect x="25" y="11" width="14" height="10" rx="3" fill="currentColor"/><path d="M25 33h14M25 41h9" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg>
+        </span>
+        <span class="logo-text">ClipBar</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#shortcuts">Shortcuts</a></li>
+        <li><a href="#download">Download</a></li>
+        <li><a href="https://github.com/turhe123/clipbar" target="_blank" rel="noopener">GitHub</a></li>
+        <li class="nav-cta"><button type="button" class="btn btn--small btn--primary" data-open-pwyw>Download</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ───────────── HERO ───────────── -->
+    <section class="hero container" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          Open source · macOS 14+ · Universal binary
+        </p>
+        <h1 class="hero-title reveal">
+          The clipboard manager<br>
+          <span class="grad-text">your Mac deserves.</span>
+        </h1>
+        <p class="hero-sub reveal">
+          Press <span class="kbd-group" aria-label="Command Shift V"><kbd class="kbd">⌘</kbd><kbd class="kbd">⇧</kbd><kbd class="kbd">V</kbd></span>
+          and a Spotlight-style bar appears with your last 500 copies — text, code, colors and images — ready to paste. 100% native Swift. Under 30&nbsp;MB. Zero permissions.
+        </p>
+        <div class="hero-ctas reveal">
+          <button type="button" class="btn btn--primary btn--large" data-open-pwyw>
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path fill="currentColor" d="M10 2a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42L9 11.6V3a1 1 0 0 1 1-1Zm-7 13a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+            Download for macOS
+          </button>
+          <a class="btn btn--ghost btn--large" href="https://github.com/turhe123/clipbar" target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+        <p class="hero-hint reveal">Free &amp; MIT licensed · Apple Silicon &amp; Intel · <span id="hero-version">Latest release</span></p>
+      </div>
+
+      <!-- ───── Spotlight-style panel mock (pure CSS) ───── -->
+      <div class="stage reveal" role="img" aria-label="ClipBar's floating clipboard panel on a macOS desktop: a search field, filter tabs, a list of recent copies including code, a color swatch and an image, and a preview pane.">
+        <div class="desktop" aria-hidden="true">
+          <div class="menubar">
+            <span class="menubar-apple"></span>
+            <span class="menubar-item menubar-item--bold">Finder</span>
+            <span class="menubar-item">File</span>
+            <span class="menubar-item">Edit</span>
+            <span class="menubar-item">View</span>
+            <span class="menubar-item menubar-item--dim">Go</span>
+            <span class="menubar-spacer"></span>
+            <span class="menubar-status menubar-status--active">
+              <svg viewBox="0 0 64 64" width="13" height="13"><rect x="18" y="16" width="28" height="36" rx="6" fill="none" stroke="currentColor" stroke-width="5"/><rect x="25" y="11" width="14" height="10" rx="3" fill="currentColor"/><path d="M25 33h14M25 41h9" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
+            </span>
+            <span class="menubar-status menubar-wifi"></span>
+            <span class="menubar-status menubar-battery"><i></i></span>
+            <span class="menubar-item">Thu 9:41</span>
+          </div>
+
+          <div class="panel-float">
+            <div class="panel">
+              <div class="panel-search">
+                <svg class="panel-search-icon" viewBox="0 0 20 20" width="18" height="18"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span class="panel-search-text">Search clipboard…</span>
+                <span class="panel-search-caret"></span>
+                <kbd class="kbd kbd--mini">esc</kbd>
+              </div>
+
+              <div class="panel-tabs">
+                <span class="tab tab--active">All</span>
+                <span class="tab">Text</span>
+                <span class="tab">Code</span>
+                <span class="tab">Colors</span>
+                <span class="tab">Images</span>
+                <span class="tab-count">500 items</span>
+              </div>
+
+              <div class="panel-body">
+                <ul class="clip-list">
+                  <li class="clip">
+                    <span class="clip-badge clip-badge--safari">S</span>
+                    <span class="clip-main">
+                      <span class="clip-text">https://developer.apple.com/documentation/appkit/nspasteboard</span>
+                      <span class="clip-sub">Safari · just now</span>
+                    </span>
+                  </li>
+                  <li class="clip clip--selected">
+                    <span class="clip-badge clip-badge--xcode">X</span>
+                    <span class="clip-main">
+                      <span class="clip-text clip-text--mono">func toggle() { isPinned.toggle() }</span>
+                      <span class="clip-sub">Xcode · 2m ago</span>
+                    </span>
+                    <span class="clip-enter">↩</span>
+                  </li>
+                  <li class="clip">
+                    <span class="clip-swatch" style="--swatch:#7C3AED"></span>
+                    <span class="clip-main">
+                      <span class="clip-text clip-text--mono">#7C3AED</span>
+                      <span class="clip-sub">Figma · 5m ago</span>
+                    </span>
+                  </li>
+                  <li class="clip">
+                    <span class="clip-thumb"></span>
+                    <span class="clip-main">
+                      <span class="clip-text">Screenshot 2026-10-18 at 09.41.12.png</span>
+                      <span class="clip-sub">Preview · 1.2 MB · 12m ago</span>
+                    </span>
+                  </li>
+                  <li class="clip clip--pinned">
+                    <span class="clip-badge clip-badge--notes">N</span>
+                    <span class="clip-main">
+                      <span class="clip-text">Meeting notes: ship 1.0 by Friday, write release notes</span>
+                      <span class="clip-sub">Notes · pinned</span>
+                    </span>
+                    <span class="clip-pin">
+                      <svg viewBox="0 0 16 16" width="12" height="12"><path fill="currentColor" d="M9.5 1.5 14.5 6.5l-1.4 1.4-.7-.7-3 3 .4 2.9-1.4 1.4-3-3-3.5 3.5-.9-.9L4.6 10.6l-3-3L3 6.2l2.9.4 3-3-.7-.7Z"/></svg>
+                    </span>
+                  </li>
+                  <li class="clip">
+                    <span class="clip-badge clip-badge--terminal">&gt;_</span>
+                    <span class="clip-main">
+                      <span class="clip-text clip-text--mono">swift build -c release --arch arm64 --arch x86_64</span>
+                      <span class="clip-sub">Terminal · 18m ago</span>
+                    </span>
+                  </li>
+                </ul>
+
+                <div class="clip-preview">
+                  <pre class="clip-code"><span class="c-kw">func</span> <span class="c-fn">toggle</span>() {
+  isPinned.<span class="c-fn">toggle</span>()
+  <span class="c-kw">if</span> isPinned {
+    store.<span class="c-fn">pin</span>(id)
+  } <span class="c-kw">else</span> {
+    store.<span class="c-fn">unpin</span>(id)
+  }
+}</pre>
+                  <div class="clip-meta">
+                    <span><b>Code</b> · Swift</span>
+                    <span>35 chars</span>
+                    <span>Xcode</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel-footer">
+                <span class="hint"><kbd class="kbd kbd--mini">↩</kbd> Paste</span>
+                <span class="hint"><kbd class="kbd kbd--mini">⌘P</kbd> Pin</span>
+                <span class="hint"><kbd class="kbd kbd--mini">⌘⌫</kbd> Delete</span>
+                <span class="support-pill">♥ Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="stats reveal" aria-label="Key numbers">
+        <li><strong>&lt;30 MB</strong><span>RAM footprint</span></li>
+        <li><strong>500</strong><span>items of history</span></li>
+        <li><strong>~0.1%</strong><span>idle CPU</span></li>
+        <li><strong>0</strong><span>permissions required</span></li>
+      </ul>
+    </section>
+
+    <!-- ───────────── FEATURES ───────────── -->
+    <section class="section container" id="features">
+      <div class="section-head reveal">
+        <p class="section-kicker">Features</p>
+        <h2 class="section-title">Small app. Big clipboard.</h2>
+        <p class="section-sub">Everything you copy, one keystroke away — without a bloated Electron shell eating your battery.</p>
+      </div>
+
+      <div class="features">
+        <article class="card reveal">
+          <div class="card-icon card-icon--violet">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM8 5V3m8 2V3M4 11h16"/></svg>
+          </div>
+          <h3>Under 30 MB of RAM</h3>
+          <p>Only thumbnails live in memory. Full image blobs sit on disk, metadata in SQLite. Your 16 GB laptop won't notice ClipBar exists.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--cyan">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </div>
+          <h3>500-item history with pinning</h3>
+          <p>A rolling ring buffer keeps your last 500 copies. Pin the ones that matter and they'll never be pruned.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--grad">
+            <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="currentColor" d="M12 4a8 8 0 0 1 0 16Z" opacity=".6"/></svg>
+          </div>
+          <h3>Color swatches</h3>
+          <p>Hex, <code>rgb()</code> and <code>hsl()</code> strings are detected and rendered with a live color circle so you can spot the right shade instantly.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--violet">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m8 8-4 4 4 4m8-8 4 4-4 4M14 5l-4 14"/></svg>
+          </div>
+          <h3>Code detection</h3>
+          <p>Copies from Xcode, VS Code, JetBrains, iTerm, Terminal and Cursor — or anything with high symbol density — render in monospace with syntax-friendly spacing.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--cyan">
+            <svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="m3 16 5-5 4 4 3-3 6 6"/><circle cx="16" cy="9" r="1.6" fill="currentColor"/></svg>
+          </div>
+          <h3>Image history, deduped</h3>
+          <p>Screenshots and copied images are stored with 120px thumbnails and SHA-256 hashed, so copying the same thing twice never costs you twice.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--grad">
+            <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Instant fuzzy search</h3>
+          <p>Start typing the moment the bar appears. Results filter as you type, across text, code, colors and image names.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--violet">
+            <svg viewBox="0 0 24 24" width="22" height="22"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Full keyboard navigation</h3>
+          <p>Never touch the mouse. <kbd class="kbd kbd--inline">↑</kbd><kbd class="kbd kbd--inline">↓</kbd> navigate, <kbd class="kbd kbd--inline">↩</kbd> paste, <kbd class="kbd kbd--inline">⌘P</kbd> pin, <kbd class="kbd kbd--inline">⌘⌫</kbd> delete, <kbd class="kbd kbd--inline">⌘1–5</kbd> switch filter tabs.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--cyan">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 3 4 6v5c0 4.6 3.4 8.5 8 10 4.6-1.5 8-5.4 8-10V6z"/><path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Private by design</h3>
+          <p>Respects the concealed and transient pasteboard markers used by password managers. The hotkey needs zero macOS permissions. No telemetry, no accounts, no network.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card-icon card-icon--grad">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+          </div>
+          <h3>~0.1% idle CPU</h3>
+          <p>A background timer polls <code>changeCount</code> every 0.4s and bails out instantly when nothing changed. Your fans stay quiet.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ───────────── SHORTCUTS ───────────── -->
+    <section class="section container" id="shortcuts">
+      <div class="shortcuts-layout">
+        <div class="section-head section-head--left reveal">
+          <p class="section-kicker">Shortcuts</p>
+          <h2 class="section-title">Hands on the keys.</h2>
+          <p class="section-sub">ClipBar is built for people who think faster than they can reach a trackpad. Every action has a key.</p>
+          <p class="hero-hint">The global hotkey is registered with Carbon's <code>RegisterEventHotKey</code> — no Accessibility or Input Monitoring prompts.</p>
+        </div>
+        <div class="shortcuts-card reveal">
+          <table class="shortcuts">
+            <caption class="visually-hidden">Keyboard shortcuts</caption>
+            <thead><tr><th scope="col">Action</th><th scope="col">Keys</th></tr></thead>
+            <tbody>
+              <tr><td>Summon ClipBar</td><td><span class="kbd-group"><kbd class="kbd">⌘</kbd><kbd class="kbd">⇧</kbd><kbd class="kbd">V</kbd></span></td></tr>
+              <tr><td>Search</td><td><span class="kbd-text">just start typing</span></td></tr>
+              <tr><td>Navigate items</td><td><span class="kbd-group"><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd></span></td></tr>
+              <tr><td>Paste selected item</td><td><span class="kbd-group"><kbd class="kbd">↩</kbd></span></td></tr>
+              <tr><td>Pin / unpin</td><td><span class="kbd-group"><kbd class="kbd">⌘</kbd><kbd class="kbd">P</kbd></span></td></tr>
+              <tr><td>Delete item</td><td><span class="kbd-group"><kbd class="kbd">⌘</kbd><kbd class="kbd">⌫</kbd></span></td></tr>
+              <tr><td>Filter: All · Text · Code · Colors · Images</td><td><span class="kbd-group"><kbd class="kbd">⌘</kbd><kbd class="kbd">1</kbd><span class="kbd-sep">…</span><kbd class="kbd">⌘</kbd><kbd class="kbd">5</kbd></span></td></tr>
+              <tr><td>Dismiss</td><td><span class="kbd-group"><kbd class="kbd">esc</kbd></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── HOW IT WORKS / PRIVACY ───────────── -->
+    <section class="section container" id="how">
+      <div class="section-head reveal">
+        <p class="section-kicker">Privacy &amp; performance</p>
+        <h2 class="section-title">How it stays fast and keeps quiet.</h2>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step-num">01</span>
+          <h3>Watch, don't snoop</h3>
+          <p>ClipBar polls <code>NSPasteboard.general.changeCount</code> every 0.4 seconds on a background timer with leeway. If nothing changed, it exits immediately — hence ~0.1% idle CPU.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">02</span>
+          <h3>Skip what's secret</h3>
+          <p>Anything flagged <code>ConcealedType</code>, <code>TransientType</code> or <code>AutoGeneratedType</code> (what 1Password, Bitwarden &amp; friends use) is never read or stored.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">03</span>
+          <h3>Classify &amp; store locally</h3>
+          <p>Text and metadata go to a SQLite database; images are written to disk as blobs with a 120px thumbnail. Everything lives in <code>~/Library/Application Support/ClipBar</code>.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">04</span>
+          <h3>Prune, never leak</h3>
+          <p>Unpinned items past the 500th are pruned and orphaned image files are deleted. Nothing ever leaves your Mac — there's no server to send it to.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ───────────── DOWNLOAD ───────────── -->
+    <section class="section container" id="download">
+      <div class="download-card reveal">
+        <div class="download-glow" aria-hidden="true"></div>
+        <div class="download-copy">
+          <p class="section-kicker">Download</p>
+          <h2 class="section-title">Get ClipBar for macOS</h2>
+          <p class="section-sub">Pay what you want — including nothing. Built for macOS 14 Sonoma or newer, Apple Silicon and Intel.</p>
+          <div class="download-actions">
+            <button type="button" class="btn btn--primary btn--large" data-open-pwyw>
+              <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path fill="currentColor" d="M10 2a1 1 0 0 1 1 1v8.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42L9 11.6V3a1 1 0 0 1 1-1Zm-7 13a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+              Download for macOS
+            </button>
+            <a class="btn btn--ghost btn--large" href="https://github.com/turhe123/clipbar/releases/latest" target="_blank" rel="noopener">All releases</a>
+          </div>
+          <p class="release-meta" id="release-meta">ClipBar.zip · GitHub Releases</p>
+          <p class="download-hint">
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 9v5M10 6.5v.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            Not notarized yet: on first launch right-click <strong>ClipBar.app → Open</strong>.
+          </p>
+        </div>
+        <div class="download-aside">
+          <div class="app-tile" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="72" height="72"><rect x="18" y="16" width="28" height="36" rx="6" fill="none" stroke="white" stroke-width="4"/><rect x="25" y="11" width="14" height="10" rx="3" fill="white"/><path d="M25 33h14M25 41h9" stroke="white" stroke-width="4" stroke-linecap="round"/></svg>
+          </div>
+          <ul class="download-facts">
+            <li>macOS 14 Sonoma+</li>
+            <li>Universal (Apple Silicon + Intel)</li>
+            <li>MIT licensed · open source</li>
+            <li>No ads, no accounts, no telemetry</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── FAQ ───────────── -->
+    <section class="section container section--narrow" id="faq">
+      <div class="section-head reveal">
+        <p class="section-kicker">FAQ</p>
+        <h2 class="section-title">Questions, answered.</h2>
+      </div>
+      <div class="faq reveal">
+        <details class="faq-item" open>
+          <summary>Is it free?</summary>
+          <div class="faq-body">
+            <p>Yes. ClipBar is MIT licensed and the source is on <a href="https://github.com/turhe123/clipbar" target="_blank" rel="noopener">GitHub</a>. Pre-built downloads are offered on a Pay What You Want basis — pick $0 and you'll get the exact same app. If it earns a spot in your menu bar, a coffee on <a href="https://ko-fi.com/turhe123" target="_blank" rel="noopener">Ko-fi</a> is very appreciated.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Does it need any permissions?</summary>
+          <div class="faq-body">
+            <p>No. The global <span class="kbd-group"><kbd class="kbd kbd--mini">⌘</kbd><kbd class="kbd kbd--mini">⇧</kbd><kbd class="kbd kbd--mini">V</kbd></span> hotkey uses Carbon's <code>RegisterEventHotKey</code>, which doesn't require Accessibility or Input Monitoring. Reading the pasteboard is something every app can do. ClipBar never asks for anything.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Where is my data stored?</summary>
+          <div class="faq-body">
+            <p>Locally, in <code>~/Library/Application Support/ClipBar</code>: a SQLite database for text and metadata, plus a <code>Blobs/</code> folder for images. Delete that folder and the history is gone. Nothing is ever uploaded.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Why is it not notarized?</summary>
+          <div class="faq-body">
+            <p>Notarization requires a paid Apple Developer account, which ClipBar doesn't have yet. macOS will warn you on first launch — right-click <strong>ClipBar.app → Open</strong> once and it runs normally from then on. You can also build it yourself from source with <code>swift build</code>.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2026 Or (Leo) Davidai · MIT License</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/turhe123/clipbar" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://ko-fi.com/turhe123" target="_blank" rel="noopener">Ko-fi</a></li>
+        <li><a href="https://github.com/turhe123/clipbar/issues" target="_blank" rel="noopener">Report a bug</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ───────────── PAY WHAT YOU WANT MODAL ───────────── -->
+  <div class="modal" id="pwyw-modal" hidden>
+    <div class="modal-backdrop" id="pwyw-backdrop"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pwyw-title" aria-describedby="pwyw-intro" tabindex="-1" id="pwyw-dialog">
+      <button type="button" class="modal-close" id="pwyw-close" aria-label="Close">
+        <svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16"><path d="M5 5l10 10M15 5 5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal-avatar" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="34" height="34"><rect x="18" y="16" width="28" height="36" rx="6" fill="none" stroke="white" stroke-width="4"/><rect x="25" y="11" width="14" height="10" rx="3" fill="white"/><path d="M25 33h14M25 41h9" stroke="white" stroke-width="4" stroke-linecap="round"/></svg>
+      </div>
+      <h2 class="modal-title" id="pwyw-title">Pay what you want</h2>
+      <p class="modal-intro" id="pwyw-intro">Hi, I'm Leo! I build fast, lightweight, open-source tools like ClipBar with zero ads or bloatware. Pre-built downloads are offered on a Pay What You Want basis — if you enjoy my apps, consider buying me a coffee!</p>
+
+      <div class="tiers" id="pwyw-tiers" role="group" aria-label="Choose an amount">
+        <button type="button" class="tier" data-amount="0" aria-pressed="false">
+          <span class="tier-amount">$0</span>
+          <span class="tier-label">Free Download</span>
+        </button>
+        <button type="button" class="tier" data-amount="3" aria-pressed="false">
+          <span class="tier-amount">$3</span>
+          <span class="tier-label">Coffee</span>
+        </button>
+        <button type="button" class="tier" data-amount="5" aria-pressed="true">
+          <span class="tier-amount">$5</span>
+          <span class="tier-label">Popular</span>
+        </button>
+        <button type="button" class="tier" data-amount="10" aria-pressed="false">
+          <span class="tier-amount">$10</span>
+          <span class="tier-label">Generous</span>
+        </button>
+      </div>
+
+      <button type="button" class="btn btn--primary btn--large btn--block" id="pwyw-action">Support Leo ($5) &amp; Download</button>
+      <p class="modal-note" id="pwyw-note">Opens Ko-fi in a new tab and starts the ClipBar.zip download. Thank you! ❤️</p>
+      <p class="modal-release" id="pwyw-release">ClipBar.zip · macOS 14+ · Universal</p>
+      <p class="modal-foot">Not notarized yet: on first launch right-click ClipBar.app → Open. <a href="https://github.com/turhe123/clipbar/releases/latest" target="_blank" rel="noopener">View on GitHub Releases</a></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

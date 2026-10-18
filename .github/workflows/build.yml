@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: swift build + app bundle
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Swift version
+        run: swift --version
+
+      - name: Build (release)
+        run: swift build -c release -Xswiftc -warnings-as-errors
+
+      - name: Assemble ClipBar.app
+        run: ./scripts/build_app.sh
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ClipBar
+          path: dist/ClipBar.zip
