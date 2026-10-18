@@ -16,7 +16,7 @@
     RELEASE_API_URL: "https://api.github.com/repos/turhe123/clipbar/releases/latest",
     ASSET_NAME: "ClipBar.zip",
     REPO_URL: "https://github.com/turhe123/clipbar",
-    KOFI_URL: "https://ko-fi.com/turhe123",
+    KOFI_URL: "https://ko-fi.com/leodavidai",
     TIERS: [0, 3, 5, 10],
     DEFAULT_TIER: 5,
     RESET_DELAY_MS: 2500

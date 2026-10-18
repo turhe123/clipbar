@@ -24,7 +24,7 @@ A blazing-fast, ultra-lightweight, open-source macOS clipboard manager written i
 - `.text`: Default fallback for plain/rich text and URLs.
 
 ## Monetization & Support Flow (Animi Pattern)
-- **In-App Support Links:** All support actions open `https://ko-fi.com/turhe123` (configurable in `Constants.swift`).
+- **In-App Support Links:** All support actions open `https://ko-fi.com/leodavidai` (configurable in `Constants.swift`).
   1. Menu Bar (`NSStatusItem`) dropdown item: `♥ Support Me on Ko-fi...`
   2. Spotlight Bar bottom footer: subtle pill button `♥ Support` on the bottom trailing edge.
   3. Native `AboutView` window with creator credit ("Created by Or (Leo) Davidai"), GitHub repo button, and prominent Ko-fi support button.

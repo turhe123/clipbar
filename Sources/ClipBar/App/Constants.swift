@@ -10,7 +10,7 @@ enum Constants {
 
     // MARK: Links
     static let githubRepoURL = URL(string: "https://github.com/turhe123/clipbar")!
-    static let supportURL = URL(string: "https://ko-fi.com/turhe123")!
+    static let supportURL = URL(string: "https://ko-fi.com/leodavidai")!
     static let creatorProfileURL = URL(string: "https://github.com/turhe123")!
     static let releasesURL = URL(string: "https://github.com/turhe123/clipbar/releases/latest")!
     static let landingPageURL = URL(string: "https://turhe123.github.io/clipbar/")!

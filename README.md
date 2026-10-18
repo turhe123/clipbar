@@ -16,14 +16,14 @@
   <a href="LICENSE"><img alt="MIT" src="https://img.shields.io/badge/license-MIT-22c55e"></a>
   <img alt="Platform" src="https://img.shields.io/badge/macOS%2014%2B-Apple%20Silicon%20%7C%20Intel-black?logo=apple">
   <img alt="Swift" src="https://img.shields.io/badge/Swift-5.10%20%2F%206-F05138?logo=swift&logoColor=white">
-  <a href="https://ko-fi.com/turhe123"><img alt="Support" src="https://img.shields.io/badge/Support%20Leo-%E2%9D%A4%EF%B8%8F-ec4899"></a>
+  <a href="https://ko-fi.com/leodavidai"><img alt="Support" src="https://img.shields.io/badge/Support%20Leo-%E2%9D%A4%EF%B8%8F-ec4899"></a>
 </p>
 
 <p align="center">
   <a href="https://turhe123.github.io/clipbar/"><b>⬇ Download (Pay What You Want)</b></a> ·
   <a href="#build-from-source">Build from source</a> ·
   <a href="https://github.com/turhe123/clipbar/issues">Report a bug</a> ·
-  <a href="https://ko-fi.com/turhe123">Support Or (Leo) Davidai ❤️</a>
+  <a href="https://ko-fi.com/leodavidai">Support Or (Leo) Davidai ❤️</a>
 </p>
 
 ---
@@ -38,7 +38,7 @@ arrow to the item you want, hit **↩** and it's back on your clipboard (and pas
 of you, if you let it). No Dock icon, no accounts, no telemetry, no Electron.
 
 > An open-source project by **[Or (Leo) Davidai](https://github.com/turhe123)** — I build fast, lightweight,
-> ad-free tools. If ClipBar saves you a few seconds a day, consider [supporting my work ❤️](https://ko-fi.com/turhe123).
+> ad-free tools. If ClipBar saves you a few seconds a day, consider [supporting my work ❤️](https://ko-fi.com/leodavidai).
 
 ## Features
 
@@ -145,7 +145,7 @@ ClipBar is free and MIT-licensed. Builds are offered on a **pay-what-you-want** 
 fast, ad-free, open-source tools — **$0 is a perfectly fine amount.**
 
 <p align="center">
-  <a href="https://ko-fi.com/turhe123"><img src="https://img.shields.io/badge/Buy%20me%20a%20coffee%20on%20Ko--fi-%E2%9D%A4%EF%B8%8F-ec4899?style=for-the-badge" alt="Support on Ko-fi"></a>
+  <a href="https://ko-fi.com/leodavidai"><img src="https://img.shields.io/badge/Buy%20me%20a%20coffee%20on%20Ko--fi-%E2%9D%A4%EF%B8%8F-ec4899?style=for-the-badge" alt="Support on Ko-fi"></a>
 </p>
 
 Other ways to help: ⭐ star the repo, [report bugs](https://github.com/turhe123/clipbar/issues), or send a PR.
